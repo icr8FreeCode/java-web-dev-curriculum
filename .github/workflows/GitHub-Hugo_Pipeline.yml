@@ -69,7 +69,7 @@ jobs:
           echo "baseURL=$PAGES_URL" >> "$GITHUB_ENV"
           echo "baseURL2=${{ steps.pages.outputs }}" >> "$GITHUB_ENV"
           echo "************************************"
-          echo "base1 = $baseURL, base2 = baseURL2"
+          echo "base1 = $baseURL, base2 = $baseURL2"
           
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
