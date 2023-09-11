@@ -65,7 +65,9 @@ jobs:
 
       - name: Get URL 
         id: siteURL
-        run: echo "::set-output name=baseURL::$(echo $PAGES_URL)"
+        run: |
+          echo "::save-state name=baseURL::$(echo $PAGES_URL)"
+          echo "PAGES: $PAGES_URL" && echo "BASE: $baseURL"
 
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
@@ -78,7 +80,7 @@ jobs:
         run: |
           hugo \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"
+            --baseURL "${{ steps.pages.outputs.baseURL }}/"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
