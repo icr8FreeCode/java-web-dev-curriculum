@@ -28,16 +28,16 @@ defaults:
 
 jobs:
   # Check Grammer 
-  check-grammar:
-    permissions: write-all 
-    runs-on: ubuntu-latest
-    name: Proofread PRs
-    steps:
-      - name: Proofread
-        uses: awreck/proofread-action@v1
-        id: proofread
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+  # check-grammar:
+  #   permissions: write-all 
+  #   runs-on: ubuntu-latest
+  #   name: Proofread PRs
+  #   steps:
+  #     - name: Proofread
+  #       uses: awreck/proofread-action@v1
+  #       id: proofread
+  #       with:
+  #         token: ${{ secrets.GITHUB_TOKEN }}
     
   # Build job
   build:
