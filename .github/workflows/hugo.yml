@@ -25,6 +25,8 @@ concurrency:
 defaults:
   run:
     shell: bash
+    working-directory: /home/runner/work/*
+
     
 env:
   HUGO_VERSION: 0.118.2
