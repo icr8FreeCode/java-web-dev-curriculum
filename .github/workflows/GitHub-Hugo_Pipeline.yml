@@ -66,8 +66,9 @@ jobs:
       - name: Get URL 
         id: siteURL
         run: |
-          echo "::save-state name=baseURL::$(echo $PAGES_URL)"
-          echo "PAGES: $PAGES_URL" && echo "BASE: $baseURL"
+          echo "baseURL=$PAGES_URL" >> "$GITHUB_ENV"
+          echo "baseURL2=${{ steps.pages.outputs.baseURL }}" >> "$GITHUB_ENV"
+          echo "$GITHUB_ENV"
 
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
