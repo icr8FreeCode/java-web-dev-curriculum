@@ -28,7 +28,7 @@ defaults:
     
 env:
   HUGO_VERSION: 0.118.2
-  url: https://education.launchcode.org/intro-to-web-dev-curriculum/
+  url: ${{ steps.pages.outputs.base_url }}
 
 jobs:
   check-grammar:
